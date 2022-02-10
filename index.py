@@ -1,62 +1,40 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Calculator</title>
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css"
-    />
+from tkinter import *
+class MyWindow:
+    def __init__(self, win):
+        self.lbl1=Label(win, text='First number')
+        self.lbl2=Label(win, text='Second number')
+        self.lbl3=Label(win, text='Result')
+        self.t1=Entry(bd=3)
+        self.t2=Entry()
+        self.t3=Entry()
+        self.btn1 = Button(win, text='Add')
+        self.btn2=Button(win, text='Subtract')
+        self.lbl1.place(x=100, y=50)
+        self.t1.place(x=200, y=50)
+        self.lbl2.place(x=100, y=100)
+        self.t2.place(x=200, y=100)
+        self.b1=Button(win, text='Add', command=self.add)
+        self.b2=Button(win, text='Subtract')
+        self.b2.bind('<Button-1>', self.sub)
+        self.b1.place(x=100, y=150)
+        self.b2.place(x=200, y=150)
+        self.lbl3.place(x=100, y=200)
+        self.t3.place(x=200, y=200)
+    def add(self):
+        self.t3.delete(0, 'end')
+        num1=int(self.t1.get())
+        num2=int(self.t2.get())
+        result=num1+num2
+        self.t3.insert(END, str(result))
+    def sub(self, event):
+        self.t3.delete(0, 'end')
+        num1=int(self.t1.get())
+        num2=int(self.t2.get())
+        result=num1-num2
+        self.t3.insert(END, str(result))
 
-    <style>
-      .alert {
-        background: green;
-        padding: 1rem;
-        border-radius: 5px;
-        color: white;
-        margin: 1rem;
-      }
-    </style>
-  </head>
-  <body>
-    <div class="container">
-      <h3>Calculator App</h3>
-    </div>
-
-    <!-- Form -->
-    <div class="container">
-      <form action="/send" method="POST">
-        <label for="Number One">First Number</label>
-        <input
-          type="text"
-          placeholder="First Number"
-          class="u-full-width"
-          name="num1"
-        />
-
-        <label for="Number Two">Second Number</label>
-        <input
-          type="text"
-          placeholder="Second Number"
-          class="u-full-width"
-          name="num2"
-        />
-
-        <label for="Operation">Operation</label>
-        <select class="u-full-width" name="operation">
-          <option value="add">Add</option>
-          <option value="subtract">Subtract</option>
-          <option value="multiply">Multiply</option>
-          <option value="divide">Divide</option>
-        </select>
-
-        <input type="submit" value="Calculate" id="calc_btn" />
-        <br />
-<div id="outputDiv" style="width: 500px; height: 75px; border: 1px solid;"> {{sum}}</div>
-        </div>
-      </form>
-    </div>
-  </body>
-</html>
+window=Tk()
+mywin=MyWindow(window)
+window.title('Hello Python')
+window.geometry("400x300+10+10")
+window.mainloop()
