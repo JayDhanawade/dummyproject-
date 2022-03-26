@@ -1,0 +1,15 @@
+upload file code
+https://pythonise.com/series/learning-flask/flask-uploading-files   
+
+view file codee
+
+
+html tags
+ 
+https://www.tutorialstonight.com/html-tags-list-with-examples.php
+
+
+main code
+https://www.geeksforgeeks.org/profile-application-using-python-flask-and-mysql/
+
+
