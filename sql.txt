@@ -1,0 +1,23 @@
+
+create database if not exists project default character set utf8 collate utf8_general_ci;
+
+create table if not exists accounts(
+id int not null auto_increment,
+username varchar(50) not null,
+password varchar(50) not null,
+email varchar(50) not null,
+organisation varchar(50) not null,
+address varchar(50) not null,
+city varchar(50) not null,
+state varchar(50) not null,
+country varchar(50) not null,
+postalcode int not null,
+primary key(id)) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
+
+
+db instance identifier -database-1
+username-admin
+password -12345678
+
+
+Create table savefile(id int(5) auto_increment , username varchar(500), accid int(5), filesname varchar(500), primary key(id));
